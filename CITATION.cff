@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Saucez"
+  given-names: "Damien"
+  orcid: "https://orcid.org/0000-0002-1137-6236"
+title: "SLICES blueprint"
+version: 1.0.1
+date-released: 2023-12-06
+url: "https://github.com/dsaucez/blueprint"
