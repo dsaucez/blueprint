@@ -83,8 +83,8 @@ the 5G scheduler causes communications to adapt based on real-time QCI feedback.
 
 ### Type 5 studies: cross-topics and resources
 
-Researchers need the combination of resources such as networking combine with
-processing.
+Researchers need the combination of resources from different topics to succeed
+in their research.
 
 > **Example 1:** researchers make a digital twin of a very large interconnection
 of radio networks. Real-time 3D radio emulators run in GPU farms and the
