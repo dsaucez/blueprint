@@ -1,7 +1,23 @@
-# blueprint
-SLICES blueprint
+# SLICES-RI blueprint
 
-## The blueprint concept
+SLICES is a flexible platform designed to support large-scale, experimental
+research focused on networking protocols, radio technologies, services, data
+collection, parallel and distributed computing and in particular cloud and
+edge-based computing architectures and services [[^slices]].
+
+In this blueprint we propose to define the infrastructure baseline augmented
+with a reference implementation, which aims at keeping a focus on the goals of
+the project, yet identifying technological challenges and breakthrough at the
+early stage of the process.
+
+## The blueprint concept and philosophy
+
+When working on testbeds, wih time, the initial objective may dissolve and
+progressively the project may become an entity living for its own with little
+attention to what researchers really need (e.g., most of the proposed features 
+are never used). To avoid falling into this pitfall, SLICES must not be seen
+as yet another testbed but instead as a scientific instrument for the community
+and its realization is driven by the blueprint.
 
 The *blueprint* is a fundamental component in programme management that
 guarantees to keep the focus on what is needed to deliver the expected changes
@@ -25,16 +41,28 @@ iteratively[[^3]]. In each cycle, we pick up the right actors to review and
 validate the advances made so far and check their adequacy with the baseline.
 Each iteration is used to refine the definition of the SLICES infrastructure.
 
+> [!TIP]
+> Finding the right actors in the cycles is essential and this is where the
+> blueprint and its multi-level of readings is an essential tool. Indeed, in
+> every cycle we involved both the management and engineers of the platform
+> community but also researchers from communities that are supposed to be
+> supported by SLICES. As a consequence, the blueprint is always aligned with
+> the actual needs of researchers and can put priority on what is really
+> essential to the targeted researchers.
+
 Each iteration being a refinement of the previous one, we progress in parallel
 with with blueprint components. At the current stage, we are iterating on the
 *5G* and the *Cloud+Edge* components of the blueprint.
 
-## Objective to reach
+## Objectives to be reached by the scientific instrument
 
 As a reminder, SLICES is the acronym for *Scientific Large-scale Infrastructure
-for Computing/Communication Experimental Studies*. The aim of the project is
-to serve the  community to take their research to the next level. As such,
-SLICES has identified the following 5 types of studies to support.
+for Computing/Communication Experimental Studies*. 
+
+The aim of the project is to serve the community to take their research to
+the next level. This means that SLICES must support the studies lead by the
+community. As such, SLICES has identified the following 5 types of studies to
+support.
 
 ### Type 1 studies: Vertical service integration and testing
 
@@ -97,7 +125,66 @@ equipment.
 contributions in open-source projects with hardware-in-the-loop, such as
 OpenAirInterface and ORAN.
 
+> [!IMPORTANT]  
+> Independent reproduction of experimental results is essential to produce sound
+> scientific results **reproducible**[[^reproducibility],[^pos]]. All scientific
+> instrument, SLICES included, must then provide full support to reproducible
+> research cycles.
+
+### Reproducible research cycles support
+
+Reproducibility can take multiple forms and different methodologies can be
+followed. SLICES as a scientific instrument must support full research cycles.
+At the level of the blueprint, we can abstract experimental research cycles in 3
+phases [[^pos]].
+
+1. **Setup phase:** allocate resources and prepare the software environment
+to support the experimental requirements. Each experiment must be independent of
+the other experiments (past, current, or future). 
+2. **Measurement/experiment phase:** orchestrate experiments and measurements
+according in a way that scarce resources are used efficiently. In the meanwhile,
+operational parameters are collected and stored.
+3. **Evaluation phase:** collected results are evaluated and process.
+Collected datasets (experimental + operational data) and related meta-data are
+documented and published in format easily readable by researchers. Published
+data and meta-data can be subject to policy enforcement.
+
+To support reproducibility, SLICES must support *(i)* **Heterogeneity** of
+hardware and software to support the types of studies defined above. Its
+objective is not be be unique and offer a one-and-only solution.
+
+As experiments in these studies are inherently distributed and may involve
+devices which behavior might influence experiments (e.g., a radio transmission
+may impact other radio reception), it is also required to provide *(ii)*
+**Isolation** such that an experiment cannot impact the other experiments.
+
+In addition, experimental research often starts with trial-and-error and
+potential heavy modifications of system under study. SLICES must then guarantee
+*(iii)* **Recoverability** at any moment such that experiments are always
+started from a well-defined initial state.
+
+Modern research implies large and complex interactions and preparation, that
+could be error-prone if done manually, and hard to repeat more than a few times.
+This is why SLICES must support *(i)* **Automation**.
+
+To be reproducible all steps and results must be provided, well-documented, and
+available. To achieve this goal SLICES must ensure *(i)* **Non-ambiguous
+Publishability** of experiments, not only result, but also artifacts that lead
+to these results, including the actual state of the system when results have
+been obtained [[^pos],[^nepi],[^badges]].
+
+> [!IMPORTANT]
+> Publication of data and meta-data is defined in conformance with the FAIR Data
+> principle[[^fair]] and aligned with EOSC governance [[^eosc]].
+
 ## References
+[^slices]: https://www.slices-ri.eu/
 [^1]: https://www.axelos.com/resource-hub/blog/msp-setting-the-blueprint-for-a-better-future
 [^2]: https://dev.to/jayjayjpg/what-is-a-software-blueprint-5388
 [^3]:  https://www.qrpinternational.fr/blog/faq/blueprint-quest-ce-que-cest/
+[^reproducibility]: Munafò, M.R., Nosek, B.A., Bishop, D.V., Button, K.S., Chambers, C.D., Percie du Sert, N., Simonsohn, U., Wagenmakers, E.J., Ware, J.J. and Ioannidis, J., 2017. A manifesto for reproducible science. Nature human behaviour, 1(1), pp.1-9.
+[^pos]: Gallenmüller, S., Scholz, D., Stubbe, H. and Carle, G., 2021, December. The pos framework: A methodology and toolchain for reproducible network experiments. In Proceedings of the 17th International Conference on emerging Networking EXperiments and Technologies (pp. 259-266).
+[^nepi]: Quereilhac, A., Lacage, M., Freire, C., Turletti, T. and Dabbous, W., 2011, September. NEPI: An integration framework for network experimentation. In SoftCOM 2011, 19th International Conference on Software, Telecommunications and Computer Networks (pp. 1-5). IEEE.
+[^badges]: https://www.acm.org/publications/policies/artifact-review-and-badging-current
+[^eosc]: https://eosc-hub.eu/
+[^fair]: COMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.
