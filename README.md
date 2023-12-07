@@ -66,7 +66,9 @@ support.
 
 ### Type 1 studies: Vertical service integration and testing
 
-Researchers use the infrastructure as a blackbox to test their own ideas.
+Researchers use the infrastructure as a layered architecture that they can
+safely use as a blackbox offering a full end-to-end service yet understanding
+the underlay.
 
 > **Example 1:** researchers assume a beyond 5G infrastructure to upload raw
 Lidar data from their drones to their ground station to create 3D environment
@@ -85,8 +87,9 @@ xAPP, P4, DPDK) and KPI collection.
 
 > **Example 1:** researchers that propose AI-based dynamic virtual network
 functions placement with performance guarantees have to validate their algorithm
-on high speed wide area network. The researchers need to have access to terabits
-per second backbone with programmable switches to test their implementation.
+on high speed operational-like networks. The researchers need to have access to
+terabits per second backbone with programmable switches to test their
+implementation.
 
 
 ### Type 3 studies: Low level development on resources
@@ -168,14 +171,19 @@ could be error-prone if done manually, and hard to repeat more than a few times.
 This is why SLICES must support *(i)* **Automation**.
 
 To be reproducible all steps and results must be provided, well-documented, and
-available. To achieve this goal SLICES must ensure *(i)* **Non-ambiguous
-Publishability** of experiments, not only result, but also artifacts that lead
-to these results, including the actual state of the system when results have
-been obtained [[^pos],[^nepi],[^badges]].
+available to researchers involved in the study (not necessarily public). To
+achieve this goal SLICES must ensure *(i)* **Non-ambiguous Archivability** of
+experiments, not only results, but also artifacts that lead to these results,
+including the actual state of the system when results have been obtained
+[[^pos],[^nepi],[^badges]]. 
 
 > [!IMPORTANT]
 > Publication of data and meta-data is defined in conformance with the FAIR Data
 > principle[[^fair]] and aligned with EOSC governance [[^eosc]].
+
+> [!IMPORTANT]
+> Experimenters must be able to chose the license, access, and pricing policy
+> for all data and meta-data resulting from use SLICES.
 
 ## References
 [^slices]: https://www.slices-ri.eu/
