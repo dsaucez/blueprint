@@ -62,7 +62,18 @@ for Computing/Communication Experimental Studies*.
 The aim of the project is to serve the community to take their research to
 the next level. This means that SLICES must support the studies lead by the
 community. As such, SLICES has identified the following 5 types of studies to
-support.
+support. To be considered as valid, **research must be reproducible**.
+
+> [!IMPORTANT]  
+> Independent reproduction of experimental results is essential to produce sound
+> scientific results **reproducible**[[^reproducibility],[^pos]]. All scientific
+> instrument, SLICES included, must then provide full support to reproducible
+> research cycles.
+
+> [!NOTE]
+> This blueprint uses the ACM terminology for reproducibility in experimental
+> science[[^badges]].
+
 
 ### Type 1 studies: Vertical service integration and testing
 
@@ -90,7 +101,6 @@ functions placement with performance guarantees have to validate their algorithm
 on high speed operational-like networks. The researchers need to have access to
 terabits per second backbone with programmable switches to test their
 implementation.
-
 
 ### Type 3 studies: Low level development on resources
 
@@ -128,17 +138,24 @@ equipment.
 contributions in open-source projects with hardware-in-the-loop, such as
 OpenAirInterface and ORAN.
 
-> [!IMPORTANT]  
-> Independent reproduction of experimental results is essential to produce sound
-> scientific results **reproducible**[[^reproducibility],[^pos]]. All scientific
-> instrument, SLICES included, must then provide full support to reproducible
-> research cycles.
-
-### Reproducible research cycles support
+## Reproducible research
 
 Reproducibility can take multiple forms and different methodologies can be
-followed. SLICES as a scientific instrument must support full research cycles.
-At the level of the blueprint, we can abstract experimental research cycles in 3
+followed.
+
+Before continuing, let's remind the terminology from the ACM:
+
+> **Reproducibility (Different team, same experimental setup)**
+>
+> The measurement can be obtained with stated precision by a different team
+> using the same measurement procedure, the same measuring system, under the
+> same operating conditions, in the same or a different location on multiple
+> trials. For computational experiments, this means that an independent group
+> can obtain the same result using the author’s own artifacts[[^badges]].
+
+
+SLICES as a scientific instrument must support full research cycles. At the
+level of the blueprint, we can abstract experimental research cycles in 3
 phases [[^pos]].
 
 1. **Setup phase:** allocate resources and prepare the software environment
@@ -186,13 +203,13 @@ including the actual state of the system when results have been obtained
 > for all data and meta-data resulting from use SLICES.
 
 ## References
-[^slices]: https://www.slices-ri.eu/
-[^1]: https://www.axelos.com/resource-hub/blog/msp-setting-the-blueprint-for-a-better-future
-[^2]: https://dev.to/jayjayjpg/what-is-a-software-blueprint-5388
-[^3]:  https://www.qrpinternational.fr/blog/faq/blueprint-quest-ce-que-cest/
+[^slices]: https://www.slices-ri.eu/, accessed December 12, 2023.
+[^1]: https://www.axelos.com/resource-hub/blog/msp-setting-the-blueprint-for-a-better-future, accessed December 12, 2023.
+[^2]: https://dev.to/jayjayjpg/what-is-a-software-blueprint-5388, accessed December 12, 2023.
+[^3]:  https://www.qrpinternational.fr/blog/faq/blueprint-quest-ce-que-cest/, accessed December 12, 2023.
 [^reproducibility]: Munafò, M.R., Nosek, B.A., Bishop, D.V., Button, K.S., Chambers, C.D., Percie du Sert, N., Simonsohn, U., Wagenmakers, E.J., Ware, J.J. and Ioannidis, J., 2017. A manifesto for reproducible science. Nature human behaviour, 1(1), pp.1-9.
 [^pos]: Gallenmüller, S., Scholz, D., Stubbe, H. and Carle, G., 2021, December. The pos framework: A methodology and toolchain for reproducible network experiments. In Proceedings of the 17th International Conference on emerging Networking EXperiments and Technologies (pp. 259-266).
 [^nepi]: Quereilhac, A., Lacage, M., Freire, C., Turletti, T. and Dabbous, W., 2011, September. NEPI: An integration framework for network experimentation. In SoftCOM 2011, 19th International Conference on Software, Telecommunications and Computer Networks (pp. 1-5). IEEE.
-[^badges]: https://www.acm.org/publications/policies/artifact-review-and-badging-current
-[^eosc]: https://eosc-hub.eu/
+[^badges]: Artifact Review and Badging Version 1.1, https://www.acm.org/publications/policies/artifact-review-and-badging-current, accessed December 12, 2023.
+[^eosc]: https://eosc-hub.eu/, accessed December 12, 2023.
 [^fair]: COMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.
