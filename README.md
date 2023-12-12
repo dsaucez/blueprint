@@ -15,9 +15,9 @@ early stage of the process.
 When working on testbeds, wih time, the initial objective may dissolve and
 progressively the project may become an entity living for its own with little
 attention to what researchers really need (e.g., most of the proposed features 
-are never used). To avoid falling into this pitfall, SLICES must not be seen
-as yet another testbed but instead as a scientific instrument for the community
-and its realization is driven by the blueprint.
+are never used). To avoid falling into this pitfall, **SLICES must not be seen
+as yet another testbed but instead as a scientific instrument for the
+community** and its realization is driven by the blueprint.
 
 The *blueprint* is a fundamental component in programme management that
 guarantees to keep the focus on what is needed to deliver the expected changes
