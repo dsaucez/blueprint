@@ -457,7 +457,7 @@ infrastructure.
 Second, the network infrastructure must be compliant with the CPRI standard
 that defines a transport interface between cell sites and base stations.
 
-The following switches are recommended to to so:
+The following switches are recommended:
 * Cisco Nexus 93180YC-FX3;
 * Cisco Nexus 9364C-GX.
 
@@ -480,6 +480,8 @@ on the servers processing the signals, the server must:
 * support the AVX-512 instruction extension;
 * one smartNIC port per RU line (typically 2 lines per RU);
 * smartNICs to support SR-IOV.
+
+To achieve high performance, real-time Linux kernel must be used.
 
 The LiteOn and AW2S radio unit listed in [group 3](5g_blueprint.md#group-3) are
 good candidates to implement the RAN split.
