@@ -419,7 +419,74 @@ to the pods with Multus [[^multus]] can be envisioned.
 
 ### RAN split
 
+The general architecture of 5G introduced the ability to split the RAN in
+different functional blocks. First, as shown in the figure below, gNB can be
+divided in two main entities. The *Central Unit* (CU) and the *Distributed
+Unit* (DU).
+
+The CU encloses the higher layers that have less delay constraints than the
+lower layers components that are implemented in the DU because they need to be
+located close to the radio units because of short control loop. As a result,
+DU are typically distributed all over the operator infrastructure, each DU being
+in charge of a cell or a few cells, while the CU is located in regional
+locations and in charge of multiple DU.
+
 ![RAN split](images/split.svg)
+
+To make the usage of resources even better, the CU can be split in CU-CP
+and CU-UP where the former handles all functions related to the control plane
+which have lower requirements in terms of bandwidth. The latter is in charge of
+handling all user plane functions.
+
+The figure below, extracted from [[^5G]] shows the details of the division. The
+split is commonly named as O-RAN Fronthaul Spilt Option 7-2x.
+![RAN split processing (figure from [[^5G]])](images/split_5g_system_approach.png)
+
+Most of the PHY is handled at the *Radio Unit* (RU) while the upper part of the
+PHY and the MAC are executed at the DU. This means that high speed-low-letency
+stable links must be used to connect the RU to the DU. Actually to guarantee
+proper execution, time synchronization is necessary. This has an important
+impact on the infrastructure hosting the RAN.
+
+First, low latency switches must be used to interconnect elements (direct links
+should be avoided as they are not flexible enough and the approach would not
+scale) and these switches need to support time synchronization via PTP [[^ptp]]
+and the support of a PTP grandmaster clock throughout the RAN' cabled
+infrastructure.
+
+Second, the network infrastructure must be compliant with the CPRI standard
+that defines a transport interface between cell sites and base stations.
+
+The following switches are recommended to to so:
+* Cisco Nexus 93180YC-FX3;
+* Cisco Nexus 9364C-GX.
+
+An alternative using **Fibrolan Falcon-RX/812/G/A** can also be considered if
+the infrastructure remains small (a few RU).
+
+Moreover, offering a PTP grandmaster clocks in the infrastructure has a impact
+on the location where the hardware can be deployed as it requires acquisition of
+GNSS. The signal acquisition mechanism must be carefully chosen based on the
+physical constraints of the hosting environment (e.g., some radio chambers only
+allow fiber as they do not allow to pass a coaxial cable from the outside of the
+room as they would become wave guides).
+
+Finally, splitting the RAN and implementing it in software adds more constraints
+on the servers processing the signals, the server must:
+
+* have at least 12 dedicated cores per CPU;
+* run at a frequency > 3GHz;
+* multiple memory channels;
+* support the AVX-512 instruction extension;
+* one smartNIC port per RU line (typically 2 lines per RU);
+* smartNICs to support SR-IOV.
+
+The LiteOn and AW2S radio unit listed in [group 3](5g_blueprint.md#group-3) are
+good candidates to implement the RAN split.
+
+> [!TIP]
+> We recommend to read O-RAN documentation [[^oran]] to have a good
+> understanding of the many technical constraints imposed but split 7.2.
 
 ## Research methodology
 
@@ -532,6 +599,8 @@ and metadata in the MRS can be seen at https://youtu.be/PD4bz9Tktf0.
 [^cmdline]: https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html, accessed December 12, 2023.
 [^taskset]: https://man7.org/linux/man-pages/man1/taskset.1.html, accessed December 12, 2023.
 [^dpdk]: https://core.dpdk.org/supported/, accessed December 12, 2023.
+[^oran]: https://docs.o-ran-sc.org/projects/o-ran-sc-o-du-phy/en/latest/Introduction_fh.html, accessed December 12, 2023.
+[^ptp]:  "1588-2019 - IEEE Approved Draft Standard for a Precision Clock Synchronization Protocol for Networked Measurement and Control Systems". IEEE., accessed December 12, 2023.
 [^UE]: List of COTS UEs Tested with OAI, https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed/-/blob/master/docs/LIST_OF_TESTED_COTSUE.md, accessed December 12, 2023.
 [^submariner]: https://submariner.io/, accessed December 12, 2023.
 [^multus]: https://github.com/k8snetworkplumbingwg/multus-cni, accessed December 12, 2023.
