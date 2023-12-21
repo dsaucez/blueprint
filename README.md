@@ -1,43 +1,57 @@
 # SLICES-RI blueprint
 
-SLICES is a flexible platform designed to support large-scale, experimental
-research focused on networking protocols, radio technologies, services, data
+
+SLICES RI is defined as a scientific instrument to support the discovery process 
+related to the future, emerging digital infrastructures.
+It is a joint investment between the EU and the member states, on the ESFRI[[^refESFRI]]roadmap since 2021.
+
+SLICES avoids fragmentation and achieves critical mass by bringing together research communities related to 
+networking protocols, radio technologies, data
 collection, parallel and distributed computing and in particular cloud and
-edge-based computing architectures and services [[^slices]].
+edge-based computing architectures and services.
+
+SLICES is a flexible platform designed to support large-scale, experimental
+research focused on all domains related to digital infrastructures [[^slices]], [[^slices2]].
+
+As oppose to similar initiatives worldwide, SLICES is sustainable with a roadmap defined until 2040.
+
+The SLICES blueprint is aimed at sharing the same vision and solutions 
+among the partners as well as proposing a plan for the design and deployment of SLICES RI.
 
 In this blueprint we propose to define the infrastructure baseline augmented
 with a reference implementation, which aims at keeping a focus on the goals of
 the project, yet identifying technological challenges and breakthrough at the
-early stage of the process.
+early stage of the process. The blueprint shall be deployed by the SLICES-RI partners and 
+will provide the baseline service that will be exposed to the experimenters when SLICES will move
+into the operation phase (continuous integration and deployment strategy that will start mid 2014).
+
+This blueprint is meant to continuously evolve in order to onboard lessons learned and
+recommendations form the community, both academia and industry.
+
 
 ## The blueprint concept and philosophy
 
-When working on testbeds, wih time, the initial objective may dissolve and
-progressively the project may become an entity living for its own with little
-attention to what researchers really need (e.g., most of the proposed features 
-are never used). To avoid falling into this pitfall, **SLICES must not be seen
-as yet another testbed but instead as a scientific instrument for the
-community** and its realization is driven by the blueprint.
+The blueprint is based on the concept of "thought experiments", a type of experiment
+that Schrödinger considered impossible to realize (The Photon box). 
+What matters in SLICES is not the infrastructure but the thought experiments and the
+support of the full research life cycle, including FAIR[[^fair]] data and reproducibility.
 
-The *blueprint* is a fundamental component in programme management that
-guarantees to keep the focus on what is needed to deliver the expected changes
-to the programme on time.
+It is impossible for SLICES RI to be exhaustive, neither we pretend to be able to 
+identify these thought experiments. We call for the research community to suggest
+how an infrastructure and its data sets can be deployed in SLICES for that purpose.
 
 The key for the success of an ambitious projects such as SLICES is to take
-enough time, effort, and rigour at the head of the programme to set the vision,
+enough time, effort, and rigour to set the vision,
 requirements, and culture [[^1]].
 
 In SLICES, we leverage the concept of blueprint to ease collaboration between
-engineers and non-engineers in order to define and implement this ambitious
-scientific infrastructure.
-
-As such, we define a common terminology that doesn't require in-depth, technical
+engineers and non-engineers. As such, we define a common terminology that doesn't require in-depth, technical
 knowledge to produce consistent vision on the application with a focus on the
 future objective[[^2]]. But as the devil is in the details, we accompany the
-blueprint with a set of reference implementations.
+blueprint with a set of reference implementations. 
 
-The blueprint is documented and discussed with the community and is built
-iteratively[[^3]]. In each cycle, we pick up the right actors to review and
+The blueprint is documented and discussed with the community and built
+iteratively[[^3]]. In each cycle, we pick up the appropriate actors to review and
 validate the advances made so far and check their adequacy with the baseline.
 Each iteration is used to refine the definition of the SLICES infrastructure.
 
@@ -51,7 +65,7 @@ Each iteration is used to refine the definition of the SLICES infrastructure.
 > essential to the targeted researchers.
 
 Each iteration being a refinement of the previous one, we progress in parallel
-with with blueprint components. At the current stage, we are iterating on the
+with blueprint components. At the current stage, we are iterating on the
 *5G* and the *Cloud+Edge* components of the blueprint.
 
 ## Objectives to be reached by the scientific instrument
@@ -89,14 +103,14 @@ time-consuming and costly for them to deploy such an infrastructure.
 
 ### Type 2 studies: Software Defined Networking
 
-Researchers work on the altering the behavior of the network itself by following
-the Software Defined Networking (SDN) paradigm and need complex environments to
+Researchers work on altering the behavior of the network itself by following
+the Software Defined Networking (SDN) paradigm. They need complex environments to
 validate their research.
 
 SLICES to provide access to well-defined network function interfaces (e.g.,
 xAPP, P4, DPDK) and KPI collection.
 
-> **Example 1:** researchers that propose AI-based dynamic virtual network
+> **Example 1:** researchers who propose AI-based dynamic virtual network
 functions placement with performance guarantees have to validate their algorithm
 on high speed operational-like networks. The researchers need to have access to
 terabits per second backbone with programmable switches to test their
@@ -119,7 +133,7 @@ use if not integrated in a full system. Researchers can insert their hardware in
 the  infrastructure and use their time slots to exercise it.
 
 > **Example 1:** researchers produced a new Reconfigurable Intelligent Surface
-and must calibrate their model for when it is used in a 5G user equipment where
+and must calibrate their model when it is used in a 5G user equipment where
 the 5G scheduler causes communications to adapt based on real-time QCI feedback.
 
 ### Type 5 studies: cross-topics and resources
@@ -129,7 +143,7 @@ in their research.
 
 > **Example 1:** researchers make a digital twin of a very large interconnection
 of radio networks. Real-time 3D radio emulators run in GPU farms and the
-workload generated workload is interconnected over TBps P4 SDN core. The number
+workload generated workload is interconnected over Tbps P4 SDN core. The number
 of UE in the radio networks doesn't allow to be exercised with actual UEs, hence
 the need of high processing capabilities directly linked with networking
 equipment.
@@ -141,7 +155,7 @@ OpenAirInterface and ORAN.
 ## Reproducible research
 
 Reproducibility can take multiple forms and different methodologies can be
-followed.
+followed. It is a component of utmost importance in SLICES RI.
 
 Before continuing, let's remind the terminology from the ACM:
 
@@ -203,7 +217,9 @@ including the actual state of the system when results have been obtained
 > for all data and meta-data resulting from use SLICES.
 
 ## References
+[^refESFRI]: https://www.esfri.eu/forum
 [^slices]: https://www.slices-ri.eu/, accessed December 12, 2023.
+[^slices2]:Serge Fdida, Nikos Makris, Thanasis Korakis, Raffaele Bruno, Andrea Passarella, Panayiotis Andreou, Bartosz Belter, Cédric Crettaz, Walid Dabbous, Yuri Demchenko, Raymond Knopp,SLICES, a scientific instrument for the networking community, Computer Communications, Volume 193, 2022, Pages 189-203,
 [^1]: https://www.axelos.com/resource-hub/blog/msp-setting-the-blueprint-for-a-better-future, accessed December 12, 2023.
 [^2]: https://dev.to/jayjayjpg/what-is-a-software-blueprint-5388, accessed December 12, 2023.
 [^3]:  https://www.qrpinternational.fr/blog/faq/blueprint-quest-ce-que-cest/, accessed December 12, 2023.
