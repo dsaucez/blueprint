@@ -15,21 +15,6 @@ The objective of this blueprint is to provide the community with a set of
 **replicable software, hardware, and methodology to make experimental research
 with cutting edge 5G environments**.
 
-In fact, this blueprint is designed in a modular way such that one can either
-deploy it fully or only partially. For example, people only interested in 5G can
-only deploy the core and use a simulated RAN, while people interested only in
-the RAN can just deploy a RAN, assuming they have access to a core (e.g., via
-the SLICES central node or another partner). Advanced users may even deploy a
-core and connect it with multiple RANs. In addition, the blueprint describes a
-workflow to achieve reproducible research.
-
-This blueprint is built around a fundamental experiment, described step-by-step
-and seconded by an open source reference implementation, that can be used as a
-baseline:
-
-* for researchers to exercise their experimental research;
-* for the SLICES community to build the SLICES infrastructure.
-
 > [!NOTE]
 > The first objective of this blueprint is to provide the right methodology to
 > achieve reproducible experimental research in the field of 5G and beyond.
@@ -40,22 +25,34 @@ baseline:
 > [[^etsi]] for engineers willing to deploy this blueprint in their
 > infrastructure.
 
-## Canonical 5G experiments
+In fact, this blueprint is designed in a modular way such that one can either
+deploy it fully or only partially. For example, people only interested in 5G can
+only deploy the core and use a simulated RAN, while people interested only in
+the RAN can just deploy a RAN, assuming they have access to a core (e.g., via
+the SLICES central node or another partner). Advanced users may even deploy a
+core and connect it with multiple RANs. In addition, the blueprint describes a
+workflow to achieve reproducible research.
 
-In this blueprint, we propose a canonical 5G experiment. It consists in
-measuring the delay incurred by the infrastructure (RAN components + core
-components) for 3 different deployment scenarios.
+This blueprint is built in increasing complexity, described step-by-step and
+seconded by an open source reference implementation, that can be used as a
+baseline:
 
-Scenarios are defined incrementally and are built on top of the previous
-scenario.
+* for researchers to exercise their experimental research;
+* for the SLICES community to build the SLICES infrastructure.
 
-> [!NOTE]
-> The scenarios have been chosen to serve the purpose of the blueprint, namely
-> serve as a baseline for experimenters and infrastructure owners and operators.
-> They highlight software and hardware requirements as well as operational
-> challenges.
+First, the blueprint defines the minimal proposition where the entire
+blueprint is deployed in one single local cluster. This option sets the
+basis (software and hardware) for the blueprint. Second, it preposes a
+case where the 5G core and 5G RAN are deployed in independent clusters. This
+cases introduces additional constraints on the network and operations. Finally,
+the RAN functions are divided according to split 7.2, which introduce strong
+constraints on hardware features and operational deployment.
 
-### One cluster
+> [!IMPORTANT]
+> Each step is built upon the previous one, it is then required to follow each
+> of them in sequence.
+
+## Single cluster
 
 In this scenario, the minimum 5G and RAN is considered. All functions are
 deployed in the same cluster of resources. This scenario defines the software
@@ -65,7 +62,7 @@ and hardware that are needed to run 5G-related experiments.
 
 We can identify 3 groups of components.
 
-#### Group 1
+### Control Components
 
 The *AMF*, *AUSF*, *Database*, *NRF*, *SMF*, *UDM*, and *UDR* are essentially
 control functions that are not expected to work at line rate even though they
@@ -80,7 +77,7 @@ As soon as multiple compute resources (i.e., servers) are used to deploy the
 functions it is preferable to rely on the `kubernetes` container orchestration
 system [[^k8s]], than home-made tools.
 
-##### Operating system
+#### Operating system
 Linux is expected to be as the operating system supporting the environment, the
 following distributions are recommended (they are proved to work well in all
 deployments):
@@ -104,7 +101,7 @@ Even though other Linux distributions could be used, our experience has shown
 that CentOS, Fedora, and SUSE distributions may cause operational issues without
 bringing significant advantages for the particular case of this blueprint.
 
-##### Hardware
+#### Hardware
 
 The operating system can be run directly on in-prem servers, with the following
 constraints:
@@ -204,11 +201,11 @@ this network with at least 100Gbps per port.
 > does not prevent downtimes but it allows to keep them under reasonable bounds
 > at low cost.
 
-#### Group 2
+### User Plane Components
 
 The *UPF* implements the user plane and is expected to work at line rate.
 
-##### Software UPF
+#### Software UPF
 For low rates (< 1Gbps) the UPF can be deployed similarly to the functions
 presented above.
 
@@ -222,7 +219,7 @@ Each instance of the UPF must have dedicated cores and NIC ports for offloading.
 See linux kernel settings and DPDK for more details and compatibility
 [[^cmdline], [^cpusets], [^dpdk]].
 
-##### Hardware UPF
+#### Hardware UPF
 Hardware implementation of the UPF is also possible.
 
 A in-network P4 implementation of the UPF is available for Tofino and Tofino 2
@@ -269,7 +266,7 @@ would be caused by the experiment network.
 > To offer more options to researchers using SLICES it is a good idea to provide
 > multiple types of accelerators in the same infrastructure.
 
-#### Group 3
+### Radio Components
 
 The *gNB* and *UE* are the components that implement the RAN. They have specific
 needs in terms of radio transmission such as specific hardware and frequency
@@ -344,7 +341,7 @@ The figure below summarizes a deployment of radio equipment.
 
 ![Cluster with radio equipment](images/cluster_radio.svg)
 
-### Core / RAN separation
+## Core / RAN separation
 
 In this scenario, the core and the RAN networks are deployed using independent
 clusters of resources.  Core and RAN separation correspond to two main
@@ -373,8 +370,8 @@ the RAN network).
 
 We discuss below three main options to interconnect clusters.
 
-#### Network
-##### Dedicated links
+### Network
+#### Dedicated links
 It is possible to have dedicated Ethernet connectivity between the core and the
 RAN clusters. One or several fibers are connected to the edge of each cluster,
 the capacity should be at least 10Gbps but 2x25Gbps is more reasonable.
@@ -385,7 +382,7 @@ VLAN should be used.
 
 ![Dedicated link](images/net_direct.svg)
 
-##### Research network backbone
+#### Research network backbone
 Sites and nodes in SLICES are usually connected to their national research and
 education network (NREN). It is then possible to interconnect sites and nodes
 via the global research network (nationally or internationally).
@@ -397,7 +394,7 @@ of bandwidth per interconnected cluster appears to be a strict minimum.
 
 ![Resarch network backbone](images/net_nren.svg)
 
-##### Public Internet
+#### Public Internet
 When dedicated links or NREN custom interconnection is not doable connectivity 
 will use the public Internet. A VPN is established between the clusters. This
 VPN should provide L2 connectivity, e.g., via VXLAN. When filtering does not
@@ -406,7 +403,7 @@ be used (e.g., via a public cloud).
 
 ![VPN](images/net_vpn.svg)
 
-#### Resource orchestration
+### Resource orchestration
 
 It is recommended to maintain one logical cluster per physical cluster to avoid
 spreading resources management over multiple locations. This would add excessive
@@ -417,7 +414,7 @@ that provides direct L3 traffic exchanges between pods and services from
 independent clusters [[^submariner]]. For specific cases, exposing interfaces 
 to the pods with Multus [[^multus]] can be envisioned.
 
-### RAN split
+## RAN split
 
 The general architecture of 5G introduced the ability to split the RAN in
 different functional blocks. First, as shown in the figure below, gNB can be
