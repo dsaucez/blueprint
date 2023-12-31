@@ -101,6 +101,11 @@ Even though other Linux distributions could be used, our experience has shown
 that CentOS, Fedora, and SUSE distributions may cause operational issues without
 bringing significant advantages for the particular case of this blueprint.
 
+To provision servers in a reproducible and automatic way, it is recommanded to
+follow a *Metal-as-a-Service* (MaaS) approach. Canonicla MAAS [[^maas]] in
+conjuction with Packer [[^packer]] have proven to be reliable solutions but
+home-made PXE based solutions are valuable too.
+
 #### Hardware
 
 The operating system can be run directly on in-prem servers, with the following
@@ -597,6 +602,8 @@ and metadata in the MRS can be seen at https://youtu.be/PD4bz9Tktf0.
 (3GPP TS 23.501 version 16.6.0 Release 16), https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/16.06.00_60/ts_123501v160600p.pdf, accessed December 12, 2023.
 [^containerd]: https://containerd.io/, accessed December 12, 2023.
 [^k8s]: https://kubernetes.io/, accessed December 12, 2023.
+[^maas]: https://maas.io, accessed December 31, 2023.
+[^packer]: https://www.packer.io/, accessed December 31, 2023.
 [^kvm]: https://linux-kvm.org/page/Main_Page, accessed December 12, 2023.
 [^cpusets]: https://docs.kernel.org/admin-guide/cgroup-v1/cpusets.html, accessed December 12, 2023.
 [^cmdline]: https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html, accessed December 12, 2023.
