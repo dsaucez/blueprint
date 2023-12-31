@@ -574,6 +574,10 @@ generated in SLICES must see its associated metadata published in the MRS. Pos
 ensures the publication of metadata for experiments but changes not resulting
 from experiments shall also be published in the MRS.
 
+For full flexibility and to ease sharing between researchers, the MRS provides a
+search engine. In addition to providing syntaxic search, the MRS query engine
+provides semantic search.
+
 ## Reference implementation
 
 Companion reference implementation of this blueprint can be found at 
