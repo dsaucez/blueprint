@@ -442,7 +442,7 @@ handling all user plane functions.
 
 The figure below, extracted from [[^5G]] shows the details of the division. The
 split is commonly named as O-RAN Fronthaul Spilt Option 7-2x.
-![RAN split processing (figure from [[^5G]])](images/split_5g_system_approach.png)
+![RAN split processing](images/split_5g_system_approach.png)
 
 Most of the PHY is handled at the *Radio Unit* (RU) while the upper part of the
 PHY and the MAC are executed at the DU. This means that high speed-low-letency
