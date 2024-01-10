@@ -495,7 +495,7 @@ good candidates to implement the RAN split.
 ## Research methodology
 
 As extensively discussed in the
-[reproducibility chapter](README.md#reproducible-research) of the blueprint,
+[reproducibility chapter](concepts.md#reproducible-research) of the blueprint,
 experiments follow cycles that can be decomposed in three cycles[[^pos]]:
 
 * the **setup phase** where resources are provisioned and configured;
@@ -560,7 +560,7 @@ and operate artifact repository. However, every artifact must be stored for
 evaluation and validation purpose in a long term storage in an non-fungible way,
 without ambiguity. Pos ensures the publication of all artifacts. Artifacts can 
 be publicly available or not. See
-[reproducibility chapter](README.md#reproducible-research) of the blueprint for
+[reproducibility chapter](concepts.md#reproducible-research) of the blueprint for
 more details.
 
 ### Metadata registry
