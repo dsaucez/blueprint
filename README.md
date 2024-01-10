@@ -22,7 +22,7 @@ with a reference implementation, which aims at keeping a focus on the goals of
 the project, yet identifying technological challenges and breakthrough at the
 early stage of the process. The blueprint shall be deployed by the SLICES-RI partners and 
 will provide the baseline service that will be exposed to the experimenters when SLICES will move
-into the operation phase (continuous integration and deployment strategy that will start mid 2014).
+into the operation phase (continuous integration and deployment strategy that will start mid 2024).
 
 This blueprint is meant to continuously evolve in order to onboard lessons learned and
 recommendations from the community, both academia and industry.
