@@ -102,7 +102,7 @@ that CentOS, Fedora, and SUSE distributions may cause operational issues without
 bringing significant advantages for the particular case of this blueprint.
 
 To provision servers in a reproducible and automatic way, it is recommanded to
-follow a *Metal-as-a-Service* (MaaS) approach. Canonicla MAAS [[^maas]] in
+follow a *Metal-as-a-Service* (MaaS) approach. Canonical MAAS [[^maas]] in
 conjuction with Packer [[^packer]] have proven to be reliable solutions but
 home-made PXE based solutions are valuable too.
 
@@ -590,7 +590,7 @@ Companion reference implementation of this blueprint can be found at
 * https://github.com/dsaucez/SLICES.git
 * https://moocs-academy.slices-ri.eu/course/view.php?id=6
 * https://doc.slices-sc.eu/blueprint/
-* https://github.com/Xymanek/slices-mrs-deployment
+* https://github.com/InSPIRE-Research-Center/slices-mrs-deployment
 * https://gitlab.lrz.de/I8-testbeds/wiki
 
 A demonstration of the full experimental cycle with publication of artifacts
