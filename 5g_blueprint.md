@@ -102,7 +102,7 @@ that CentOS, Fedora, and SUSE distributions may cause operational issues without
 bringing significant advantages for the particular case of this blueprint.
 
 To provision servers in a reproducible and automatic way, it is recommanded to
-follow a *Metal-as-a-Service* (MaaS) approach. Canonicla MAAS [[^maas]] in
+follow a *Metal-as-a-Service* (MaaS) approach. Canonical MAAS [[^maas]] in
 conjuction with Packer [[^packer]] have proven to be reliable solutions but
 home-made PXE based solutions are valuable too.
 
@@ -442,7 +442,7 @@ handling all user plane functions.
 
 The figure below, extracted from [[^5G]] shows the details of the division. The
 split is commonly named as O-RAN Fronthaul Spilt Option 7-2x.
-![RAN split processing (figure from [[^5G]])](images/split_5g_system_approach.png)
+![RAN split processing](images/split_5g_system_approach.png)
 
 Most of the PHY is handled at the *Radio Unit* (RU) while the upper part of the
 PHY and the MAC are executed at the DU. This means that high speed-low-letency
@@ -495,7 +495,7 @@ good candidates to implement the RAN split.
 ## Research methodology
 
 As extensively discussed in the
-[reproducibility chapter](README.md#reproducible-research) of the blueprint,
+[reproducibility chapter](concepts.md#reproducible-research) of the blueprint,
 experiments follow cycles that can be decomposed in three cycles[[^pos]]:
 
 * the **setup phase** where resources are provisioned and configured;
@@ -560,7 +560,7 @@ and operate artifact repository. However, every artifact must be stored for
 evaluation and validation purpose in a long term storage in an non-fungible way,
 without ambiguity. Pos ensures the publication of all artifacts. Artifacts can 
 be publicly available or not. See
-[reproducibility chapter](README.md#reproducible-research) of the blueprint for
+[reproducibility chapter](concepts.md#reproducible-research) of the blueprint for
 more details.
 
 ### Metadata registry
@@ -590,7 +590,7 @@ Companion reference implementation of this blueprint can be found at
 * https://github.com/dsaucez/SLICES.git
 * https://moocs-academy.slices-ri.eu/course/view.php?id=6
 * https://doc.slices-sc.eu/blueprint/
-* https://github.com/Xymanek/slices-mrs-deployment
+* https://github.com/InSPIRE-Research-Center/slices-mrs-deployment
 * https://gitlab.lrz.de/I8-testbeds/wiki
 
 A demonstration of the full experimental cycle with publication of artifacts
