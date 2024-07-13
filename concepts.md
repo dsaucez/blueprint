@@ -197,4 +197,4 @@ including the actual state of the system when results have been obtained
 [^nepi]: Quereilhac, A., Lacage, M., Freire, C., Turletti, T. and Dabbous, W., 2011, September. NEPI: An integration framework for network experimentation. In SoftCOM 2011, 19th International Conference on Software, Telecommunications and Computer Networks (pp. 1-5). IEEE.
 [^badges]: Artifact Review and Badging Version 1.1, https://www.acm.org/publications/policies/artifact-review-and-badging-current, accessed December 12, 2023.
 [^eosc]: https://eosc-hub.eu/, accessed December 12, 2023.
-[^fair]: COMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.
+[^fair]: COMMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.

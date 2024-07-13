@@ -44,6 +44,9 @@ be compatible with the pos framework [[^pos]].
 All data and metadata must be published, and respect the FAIR principle
 [[^fair]]. Published data and meta-data can be subject to policy enforcement.
 
+The documentation and reference implementation must be written in a way that
+it can be learned and used by the SLICES-RI LLM [[^llm]].
+
 ## Requirements
 
 The full experiment cycle must be automated in a reproducible way using pos 
@@ -53,10 +56,19 @@ supported.
 All data and metadata must be managed by the MRS and its associated DMI.
 Published data and meta-data can be subject to policy enforcement.
 
+Every blueprint must be deployable on the SLICES-RI infrastructure. Access to
+infrastructure must conform to the SLICES-RI access policies. So does the
+accounting.
+
+Authentication and authorization to the blueprint deployment in the SLICES-RI
+infrastructure must be via the SLICES portal.
+
 ## References
 
-[^fair]: COMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.
+[^fair]: COMMISSION, E., 2022. Guidelines on FAIR Data Management in Horizon 2020.[Sl], 2016.
 
 [^1]:  https://www.qrpinternational.fr/blog/faq/blueprint-quest-ce-que-cest/, accessed December 12, 2023.
 
 [^pos]: Gallenmüller, S., Scholz, D., Stubbe, H. and Carle, G., 2021, December. The pos framework: A methodology and toolchain for reproducible network experiments. In Proceedings of the 17th International Conference on emerging Networking EXperiments and Technologies (pp. 259-266).
+
+[^llm]: TBD
