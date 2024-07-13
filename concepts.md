@@ -35,7 +35,7 @@ Each iteration is used to refine the definition of the SLICES infrastructure.
 
 Each iteration being a refinement of the previous one, we progress in parallel
 with blueprint components. At the current stage, we are iterating on the
-*5G* and the *Cloud+Edge* components of the blueprint.
+*post-5G* and the *cloud-continuum* components of the blueprint.
 
 ## Objectives to be reached by the scientific instrument
 
@@ -141,13 +141,13 @@ SLICES as a scientific instrument must support full research cycles. At the
 level of the blueprint, we can abstract experimental research cycles in 3
 phases [[^pos]].
 
-1. **Setup phase:** allocate resources and prepare the software environment
+1. **Setup phase:** allocate resources and prepare the software/hardware environment
 to support the experimental requirements. Each experiment must be independent of
 the other experiments (past, current, or future). 
 2. **Measurement/experiment phase:** orchestrate experiments and measurements
 according in a way that scarce resources are used efficiently. In the meanwhile,
 operational parameters are collected and stored.
-3. **Evaluation phase:** collected results are evaluated and process.
+3. **Evaluation phase:** collected results are evaluated and processed.
 Collected datasets (experimental + operational data) and related meta-data are
 documented and published in format easily readable by researchers. Published
 data and meta-data can be subject to policy enforcement.
