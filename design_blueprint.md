@@ -100,9 +100,10 @@ Here below we present the typical documentation structure for a blueprint with
 >   * Requirements
 >     * Software
 >     * Hardware
->   * Generated data and meta-data
+>   * Expected generated data and meta-data
 > * Reference implementation
->   * link to the reference implementation
+>   * link to the reference implementation with documentation on how to exercise
+       the blueprint
 > * Contacts
 > * Contributors
 > * References
