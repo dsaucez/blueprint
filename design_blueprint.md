@@ -93,7 +93,7 @@ older versions.
 Here below we present the typical documentation structure for a blueprint with
 *i* components.
 
-> * Objectives
+> * Scientific challenge and objectives
 > * Methodology
 > * Component *i*
 >   * Definition
