@@ -1,11 +1,11 @@
 # How to design a SLICES-RI blueprint?
 
-This document aims to provide recommandations on how to design a SLICES-RI
+This document aims to provide recommendations on how to design a SLICES-RI
 blueprint and its reference implementation.
 
 A blueprint is based on the concept of "thought experiments" (a type of
 experiment that Schrödinger considered impossible to realize -The Photon box-). 
-They relates to the main scientific questions that a research community is willing to address using SLICES.
+They relate to the main scientific questions that a research community is willing to address using SLICES.
 Much beyond its physical infrastructure, SLICES assets are the formulation of the thought experiments and its ability to support 
 the full research life cycle, including FAIR[[^fair]] data and reproducibility.
 
@@ -32,7 +32,7 @@ Blueprints must be designed in a modular way such that one can either deploy it
 fully or only partially.
 
 Blueprints are built in increasing complexity, described step-by-step and
-seconded by an open source reference implementation, that can be used as a
+seconded by an open-source reference implementation, that can be used as a
 baseline and a benchmark for their supported type of thought experiments:
 
 * for the SLICES community to build the SLICES-RI facility.
@@ -49,7 +49,7 @@ The documentation and reference implementation must be written in a way that
 it can be learned and efficiently exploited and used by the SLICES-RI LLM [[^llm]].
 The later acts as a mediator between the experimenter and the SLICES-RI facility.
 
-Each blueprint goes along with an open source reference implementation that
+Each blueprint goes along with an open-source reference implementation that
 offers the possibility to the readers to exercise the entire blueprint in the SLICES-RI infrastructure, and, to some extent, to adopt it in their own
 environment. To favour the adoption by a wide audience, standard automation
 tools (such as Ansible) are strongly recommended instead of home-made solutions.
@@ -70,6 +70,9 @@ Every blueprint must be deployable on the SLICES-RI infrastructure. Access to
 infrastructure must conform to the SLICES-RI access policies. So does the
 accounting.  The SLICES-RI infrastructure is built on various digital components (compute, storage, network), being enriched and updated over time.
 
+The key parameters that can be tuned during the experiment and metrics captured and exposed (experimental results) need to be clearly described within the blueprint documentation. 
+After the deployment of the blueprint, the metrics that are captured must be accessible. Guidelines for the extension of these metrics that cover more scenarios need to be provided.
+
 Authentication and authorization to the blueprint deployment in the SLICES-RI
 infrastructure must be via the SLICES portal.
 
@@ -80,9 +83,9 @@ The documentation must be integrated on the SLICES-RI documentation portal
 (i.e., rendered and published directly by the portal documentation rendering
 pipeline).
 
-The blueprint provides a fully open source reference implementation that is made
-publicly accessible and free of charges directly from the SLICES-RI portal. The
-documentation of the reference implementation must be self contained in order
+The blueprint provides a fully open-source reference implementation that is made
+publicly accessible and free of charge directly from the SLICES-RI portal. The
+documentation of the reference implementation must be self-contained in order
 for the LLM to be fed adequately.
 
 For reproducibility purposes, the different versions of the implementation must
@@ -104,6 +107,7 @@ We present below the typical documentation structure for a blueprint with
 >     * Software
 >     * Hardware
 >   * Expected generated data and meta-data
+>     * Key metrics exposed
 > * Reference implementation
 >   * link to the reference implementation with documentation on how to exercise
        the blueprint
